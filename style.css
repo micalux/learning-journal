@@ -25,6 +25,7 @@ p {
     text-decoration: underline;
     color: #151515;
     margin: 0 0 3em 0;
+    cursor: pointer;
 }
 
 /* NAV BAR */
@@ -33,6 +34,7 @@ nav {
     justify-content: space-between;
     align-content: baseline;
     margin: 0 8vw;
+    height: 4em;
 }
 
 .logo {
@@ -53,6 +55,11 @@ nav {
 .nav-links {
     display: flex;
     gap: 2em;
+    align-items: center;
+}
+
+.nav-links h3 {
+    display: none;
 }
 
 .link a {
@@ -62,7 +69,13 @@ nav {
     color: #151515;
 }
 
+.fa-bars {
+    cursor: pointer;
+}
+
+
 /* ARTICLE SECTION*/
+
 article {
     margin-bottom: 2.5em;
 }
@@ -87,11 +100,16 @@ article img {
     margin: 0;
 }
 
+
 /* GRID HOME*/
 
 .main-content.home {
     display: grid;
-    grid-template: 30% repeat(3, auto) 5vw 3em repeat(6, auto)/ 8vw auto 8vw;
+    grid-template-rows: 30% repeat(3, auto) 5vw 3em repeat(34, auto);
+}
+
+.main-content {
+    grid-template-columns: 5vw auto 5vw;
 }
 
 .main-image.home {
@@ -161,13 +179,27 @@ article img {
     grid-column: 2 / -2;
 }
 
+.seven.home {
+    grid-row: 13 / 14;
+    grid-column: 2 / -2;
+}
+
+.eight.home {
+    grid-row: 14 / 15;
+    grid-column: 2 / -2;
+}
+
+.nine.home {
+    grid-row: 15 / 16;
+    grid-column: 2 / -2;
+}
 
 
 /* GRID BLOG*/
 
 .main-content.blog {
     display: grid;
-    grid-template: 2em repeat(11, auto) / 8vw auto 8vw;
+    grid-template-rows: 2em repeat(11, auto);
 }
 
 .main-date.blog {
@@ -196,9 +228,10 @@ article img {
 } 
 
 .main-image.blog {
-    width: 100%;
     grid-row: 5 / 6;
     grid-column: 2 / -2;
+
+    width: 100%;
 }
 
 .longtxt.blog, 
@@ -217,12 +250,12 @@ article img {
 }
 
 .recent-posts {
+    grid-row: 7;
+    grid-column: 2 / -2;
+
     text-align: center;
     font-size: 1rem;
     margin-bottom: 1.5em;
-
-    grid-row: 7;
-    grid-column: 2 / -2;
 }
 
 .one.blog {
@@ -240,20 +273,20 @@ article img {
     grid-column: 2 / -2;
 }
 
+
 /* GRID ABOUT_ME*/
 
 .main-content.about-me {
     display: grid;
-    grid-template: repeat(8, auto) / 8vw auto auto 8vw;
-    color: #151515;
+    grid-template-rows: repeat(8, auto);
 }
 
 .main-image.about-me {
-    width: 100%;
-    margin: 2em 0;
-
     grid-row: 1 / 2;
     grid-column: 2 / 3;
+
+    width: 50%;
+    margin: 2em 0;
 }
 
 .main-title.about-me {
@@ -294,9 +327,25 @@ footer {
     margin: 0;
 }
 
+
+/* UTILITY */
+
+.hide {
+    display: none;
+}
+
+
 /* MEDIA QUERIES*/
 
 @media (min-width: 650px) {
+
+    .nav-links h3 {
+        display: block;
+    }
+
+    .fa-solid.fa-bars {
+        display: none;
+    }
 
     /* HOME */
     .main-date.home {
@@ -313,8 +362,7 @@ footer {
      }
 
      .main-content.home {
-        display: grid;
-        grid-template: 30% repeat(3, auto) 5vw 3em auto 2em auto / 8vw auto 4vw auto 4vw auto 8vw;
+        grid-template: 30% repeat(3, auto) 5vw 3em auto 2em auto 2em auto / 4vw auto 3vw auto 3vw auto 4vw;
         margin-bottom: 2.5em;
     }
 
@@ -348,10 +396,29 @@ footer {
         grid-column: 6 / 7;
     }
 
+    .seven.home {
+        grid-row: 11 / 12;
+        grid-column: 2 / 3;
+    }
+
+    .eight.home {
+        grid-row: 11 / 12;
+        grid-column: 4 / 5;
+    }
+
+    .nine.home {
+        grid-row: 11 / 12;
+        grid-column: 6 / 7;
+    }
+
     /* BLOG */
+    .main-content.about-me,
     .main-content.blog {
-        display: grid;
-        grid-template: 2em repeat(11, auto) / 8vw repeat(2, 4vw) auto repeat(2, 4vw) auto repeat(2, 4vw) auto repeat(2, 4vw) 8vw;
+        grid-template-columns: 4vw repeat(2, 3vw) auto repeat(2, 3vw) auto repeat(2, 3vw) auto repeat(2, 3vw) 4vw;
+    }
+
+    .main-content.blog {
+        grid-template-rows: 2em repeat(3, auto) 40vw repeat(7, auto);
         margin-bottom: 2.5em;
     }
 
@@ -359,68 +426,102 @@ footer {
         font-size: 2vw;
         
         grid-column: 3 / 5;
-     }
+    }
  
      .main-title.blog {
-        font-size: 5vw;
-
         grid-column: 3 / -3;
-      }
+
+        font-size: 5vw;
+    }
  
     .main-subtitle.blog {
+        grid-column: 3 / -3;
+
         font-size: 2vw;
         max-width: 75vw;
-
-        grid-column: 3 / -3;
       }
 
     .main-image.blog {
-        width: 100%;
-
         grid-row: 5 / 6;
         grid-column: 2 / -2;
+
+        object-fit: cover;
+        object-position: 0 1%;
+        height: 100%;
     }
 
-      .longtxt.blog {
+    .longtxt.blog {
         grid-column: 3 / -3;
-      }
+    }
 
-      .recent-posts {
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 1.5em;
-    
+    .recent-posts {
         grid-row: 7;
         grid-column: 2 / -2;
     }
  
-     .one.blog {
-         grid-row: 8 / 9;
-         grid-column: 2 / 5;
-     }
+    .one.blog {
+        grid-row: 8 / 9;
+        grid-column: 2 / 5;
+    }
  
-     .two.blog {
-         grid-row: 8 / 9;
-         grid-column: 6 / 9;
-     }
+    .two.blog {
+        grid-row: 8 / 9;
+        grid-column: 6 / 9;
+    }
  
-     .three.blog {
-         grid-row: 8 / 9;
-         grid-column: 10 / -2;
-     }
- 
-     .four.blog {
-         grid-row: 9 / 10;
-         grid-column: 2 / 3;
-     }
- 
-     .five.blog {
-         grid-row: 9 / 10;
-         grid-column: 4 / 5;
-     }
- 
-     .six.blog {
-         grid-row: 9 / 10;
-         grid-column: 6 / 7;
-     }
+    .three.blog {
+        grid-row: 8 / 9;
+        grid-column: 10 / -2;
+    }
+
+    .four.blog {
+        grid-row: 9 / 10;
+        grid-column: 2 / 3;
+    }
+
+    .five.blog {
+        grid-row: 9 / 10;
+        grid-column: 4 / 5;
+    }
+
+    .six.blog {
+        grid-row: 9 / 10;
+        grid-column: 6 / 7;
+    }
+
+     /* ABOUT-ME */
+     .main-content.about-me {
+        grid-template: 2em repeat(8, auto) / 4vw repeat(2, 3vw) auto repeat(2, 3vw) auto repeat(2, 3vw) auto repeat(2, 3vw) 4vw;
+    }
+    
+    .main-image.about-me {
+        grid-column: 2 / 7;
+        grid-row: 1 / 4;
+
+        width: 70%;
+    }
+    
+    .main-title.about-me {
+        grid-row: 2 / 3;
+        grid-column: 5 / -2;
+    
+        align-self: self-end;
+        font-size: 3vw;
+        margin: 0;
+    } 
+    
+    .main-subtitle.about-me {
+        grid-row: 3 / 4;
+        grid-column: 5 / -2;
+        
+        font-size: 2vw;
+        max-width: 60vw;
+    }
+
+    .longtxt.about-me {
+        grid-column: 4 / -2;
+
+        font-size: 2vw;
+        max-width: 75vw;
+    }
 }

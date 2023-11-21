@@ -105,7 +105,7 @@ article img {
 
 .main-content.home {
     display: grid;
-    grid-template-rows: 30% repeat(3, auto) 5vw 3em repeat(34, auto);
+    grid-template-rows: 30% repeat(3, auto) 5vw 3em;
 }
 
 .main-content {
@@ -311,7 +311,6 @@ footer {
     align-items: center;
     text-align: center;
     padding: 3em 0;
-    margin-top: 1em;
     font-size: 0.75rem;
 
 }
@@ -339,6 +338,11 @@ footer {
 
 @media (min-width: 650px) {
 
+    .main-content.blog, 
+    .main-content.about-me, {
+        margin-bottom: 2.5em;
+    }
+
     .nav-links h3 {
         display: block;
     }
@@ -363,7 +367,6 @@ footer {
 
      .main-content.home {
         grid-template: 30% repeat(3, auto) 5vw 3em auto 2em auto 2em auto / 4vw auto 3vw auto 3vw auto 4vw;
-        margin-bottom: 2.5em;
     }
 
     .one.home {
@@ -419,7 +422,6 @@ footer {
 
     .main-content.blog {
         grid-template-rows: 2em repeat(3, auto) 40vw repeat(7, auto);
-        margin-bottom: 2.5em;
     }
 
     .main-date.blog {

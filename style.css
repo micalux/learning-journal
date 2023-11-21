@@ -336,11 +336,10 @@ footer {
 
 /* MEDIA QUERIES*/
 
-@media (min-width: 650px) {
+@media (min-width: 4800px) {
 
-    .main-content.blog, 
-    .main-content.about-me, {
-        margin-bottom: 2.5em;
+    .main-content {
+        margin-bottom: 3em;
     }
 
     .nav-links h3 {

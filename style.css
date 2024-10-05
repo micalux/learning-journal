@@ -336,7 +336,7 @@ footer {
 
 /* MEDIA QUERIES*/
 
-@media (min-width: 4800px) {
+@media (min-width: 480px) {
 
     .main-content {
         margin-bottom: 3em;
@@ -504,6 +504,7 @@ footer {
         grid-row: 1 / 4;
 
         width: 70%;
+        max-width: 700px;
     }
     
     .main-title.about-me {
